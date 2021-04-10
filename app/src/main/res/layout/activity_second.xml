@@ -4,25 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SecondActivity">
 
-    <TextView
-        android:id="@+id/textViewReceived"
+    <EditText
+        android:id="@+id/editTextSendBack"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:hint="@string/write_here"
         android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRequest"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSendBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonRequest"
+        android:id="@+id/buttonSendBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/request"
+        android:text="@string/send_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
