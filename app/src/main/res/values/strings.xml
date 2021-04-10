@@ -3,4 +3,6 @@
     <string name="request">request</string>
     <string name="write_here">Write Here</string>
     <string name="send_back">send back</string>
+    <string name="count_activity">Count Activity</string>
+    <string name="add">add</string>
 </resources>

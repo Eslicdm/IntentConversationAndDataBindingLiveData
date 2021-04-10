@@ -1,12 +1,9 @@
-package com.eslirodrigues.intentconversationanddatabindinglivedata
+package com.eslirodrigues.intentconversationanddatabindinglivedata.intentconversation
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import com.eslirodrigues.intentconversationanddatabindinglivedata.countdatabinding.CountActivity
 import com.eslirodrigues.intentconversationanddatabindinglivedata.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -38,17 +35,5 @@ class MainActivity : AppCompatActivity() {
                 binding.textViewReceived.text = textResponse
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menuCountActivity -> startActivity(Intent(this, CountActivity::class.java))
-        }
-        return true
     }
 }
