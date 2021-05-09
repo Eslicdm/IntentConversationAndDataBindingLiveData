@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
 import com.eslirodrigues.intentconversationanddatabindinglivedata.countdatabinding.CountActivity
 import com.eslirodrigues.intentconversationanddatabindinglivedata.databinding.ActivityMainBinding
 
@@ -23,22 +24,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.buttonRequest.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivityForResult(intent, REQUEST_CODE)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val textResponse = data?.getStringExtra("key")
+        val launchActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val textResponse: String? = data?.getStringExtra("key")
                 binding.textViewReceived.text = textResponse
             }
         }
+
+        binding.buttonRequest.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            launchActivity.launch(intent)
+        }
+
+
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
